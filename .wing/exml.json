@@ -1,0 +1,86 @@
+{
+    "15e2bc6006a": {
+        "guideLines": [
+            {
+                "type": "v",
+                "pos": 155
+            },
+            {
+                "type": "v",
+                "pos": 110
+            },
+            {
+                "type": "v",
+                "pos": 157
+            },
+            {
+                "type": "h",
+                "pos": 535
+            }
+        ]
+    },
+    "15e858c6fab": {
+        "guideLines": [
+            {
+                "type": "v",
+                "pos": 204.545
+            },
+            {
+                "type": "v",
+                "pos": 475.758
+            },
+            {
+                "type": "v",
+                "pos": 30.303
+            },
+            {
+                "type": "h",
+                "pos": 45.455
+            },
+            {
+                "type": "h",
+                "pos": -106.061
+            }
+        ]
+    },
+    "global": {
+        "globalAutoLayerMarkEnable": false,
+        "globalRulerEnable": false,
+        "globalAdsorbEnable": false
+    },
+    "15faa0d19ad": {
+        "guideLines": [
+            {
+                "type": "v",
+                "pos": 28
+            },
+            {
+                "type": "v",
+                "pos": 275
+            }
+        ]
+    },
+    "1601abbc39e": {
+        "guideLines": [
+            {
+                "type": "v",
+                "pos": 151
+            }
+        ]
+    },
+    "16073fe73c5": {
+        "backgroundType": "null",
+        "backgroundX": 0,
+        "backgroundY": 0,
+        "backgroundWidth": -1,
+        "backgroundHeight": -1,
+        "useBgImage": true,
+        "useBgColor": true,
+        "backgroundAlpha": 100
+    },
+    "160e4211add": {
+        "path": "core\\module\\GameStart.ts",
+        "class": "GameStart",
+        "parentPath": ""
+    }
+}
