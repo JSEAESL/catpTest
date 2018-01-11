@@ -32,8 +32,9 @@ module mx {
 		{
             this.wayLayer = new egret.DisplayObjectContainer();
             this.catLayer = new egret.DisplayObjectContainer();
-            this.addChild(this.wayLayer)
-            this.addChild(this.catLayer)
+            this.addChild(this.wayLayer);
+            this.addChild(this.catLayer);
+			this.addChild(this.wait);
 			this.initCat();
 		}
 			

@@ -10,6 +10,6 @@
 	</e:List>
 	<e:Image id="restart_b" source="replay_png" x="268" y="63"/>
 	<e:Label id="score_t" text="Label" x="98" y="74" textColor="0x0a0000"/>
-	<e:Image id="wait" width="640" height="1136" x="0" y="0" source="selected_png" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale"/>
+	<e:Image id="wait" width="640" height="1136" x="0" y="0" source="selected_png" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale" alpha="0.1"/>
 
 </e:Skin>

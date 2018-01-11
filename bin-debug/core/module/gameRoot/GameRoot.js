@@ -33,6 +33,7 @@ var mx;
             this.catLayer = new egret.DisplayObjectContainer();
             this.addChild(this.wayLayer);
             this.addChild(this.catLayer);
+            this.addChild(this.wait);
             this.initCat();
         };
         GameRoot.prototype.initCat = function () {

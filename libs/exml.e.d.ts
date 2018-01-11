@@ -60,7 +60,7 @@ declare class UIWayPoint_eui extends eui.Skin{
 }
 declare class GameResultSkin extends eui.Skin{
 }
-declare class GameRoot_skin extends eui.Skin{
+declare class GameRootSkin extends eui.Skin{
 }
 declare class GameStartSkin extends eui.Skin{
 }
