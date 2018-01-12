@@ -36,6 +36,8 @@ module mx {
            let c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
                 let screen: any = <eui.Component><any>new c_class(data);
+                //screen.x = 0.5*(GameConfig.stageWidth - screen.width);
+                screen.y = 0.5*(GameConfig.stageHeight - screen.height);
                 this.alert_g.addChild(screen);
                 this.addList.push(screen);
             }
