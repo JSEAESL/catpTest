@@ -2,14 +2,14 @@
 <e:Skin class="GameRootSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 
 	<e:Image source="bg2_jpg" x="0" y="0"/>
-	<e:List id="pointList" width="408" height="462" x="101" y="252" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="UIWayPoint_eui">
+	<e:List id="pointList" width="408" height="462" x="101" y="372" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="UIWayPoint_eui">
 		<e:layout>
 			<e:TileLayout requestedRowCount="9" requestedColumnCount="9" rowHeight="45" columnWidth="45" horizontalGap="0" verticalGap="0"/>
 		</e:layout>
 
 	</e:List>
-	<e:Image id="restart_b" source="replay_png" x="268" y="63"/>
-	<e:Label id="score_t" text="Label" x="98" y="74" textColor="0x0a0000"/>
+	<e:Image id="restart_b" source="replay_png" x="178" y="233"/>
+	<e:Label id="score_t" text="Label" x="448" y="264" textColor="0x0a0000"/>
 	<e:Image id="wait" width="640" height="1136" x="0" y="0" source="selected_png" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale" alpha="0.1"/>
 
 </e:Skin>
