@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GameResultSkin" xmlns:e="http://ns.egret.com/eui" states="win,lose">
-	<e:Image source="victory_png" x="0" y="23" includeIn="win"/>
-	<e:Image source="failed_png" includeIn="lose" y="0"/>
-	<e:Group y="173" horizontalCenter="0" x="100" anchorOffsetY="0" height="156">
-		<e:Group y="0" horizontalCenter="0">
+
+
+	<e:Group y="0" horizontalCenter="0">
+		<e:Image source="victory_png" x="0" y="23" includeIn="win"/>
+		<e:Image source="failed_png" includeIn="lose" y="0" x="0"/>
+		<e:Group y="173" x="124" anchorOffsetY="0" height="156">
+			<e:Group y="0" horizontalCenter="0">
 			<e:Label id="heightScoreLabel" text="0" x="150" y="0" textColor="0x000000" size="20" verticalAlign="justify"/>
 			<e:Label text="历史最高得分" x="0" y="0" textColor="0x000000" size="20" verticalAlign="justify"/>
-		</e:Group>
-		<e:Group y="40" horizontalCenter="0">
+			</e:Group>
+			<e:Group y="40" horizontalCenter="0">
 			<e:Label text="当前得分" x="0" y="0" textColor="0x000000" size="20" verticalAlign="justify"/>
 			<e:Label id="scoreLabel" text="0" x="110" y="0" textColor="0x000000" size="20" verticalAlign="justify"/>
+			</e:Group>
 		</e:Group>
-		<e:Image id="againImage" source="replay_png" y="63" horizontalCenter="0"/>
 	</e:Group>
+	<e:Image id="againImage" source="replay_png" y="238" horizontalCenter="-18"/>
 </e:Skin>
