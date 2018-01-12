@@ -9,7 +9,7 @@ class AStar {
     /**封闭列表*/
     private _closed:WayPointData[];
     /**节点网格数据对象*/
-    private _grid:GameModel;
+    private _grid:mx.GameModelProxy;
     /**结束节点*/
     private _endNodes:WayPointData[];
 
@@ -34,7 +34,7 @@ class AStar {
     private _diagCost:number = Math.SQRT2;
      
     /**在网格中是否找到路径*/
-    public initPath(grid:GameModel):number[]
+    public initPath(grid:mx.GameModelProxy):number[]
     {
         this._grid = grid;
         this._open = [];
@@ -82,7 +82,7 @@ class AStar {
     }
 
     private _otherNode:WayPointData;
-    public CanMove(grid:GameModel):number[]
+    public CanMove(grid:mx.GameModelProxy):number[]
     {
         this._grid = grid;
         this._open = [];

@@ -89,7 +89,9 @@ module mx {
 		protected init():void
 		{
             this.initGame();
-            GameModel.Ins.updataCat();
+            let gProxy = <GameModelProxy><any>(this.facade.retrieveProxy(GameModelProxy.NAME));
+            gProxy.updataCat();
+            //GameModel.Ins.updataCat();
 		}
 
         private clickHandler():void
@@ -110,9 +112,13 @@ module mx {
         
         private reStarGame(e:egret.TouchEvent = null):void
         {
-            GameModel.Ins.reSetData();
+            let gProxy = <GameModelProxy><any>(this.facade.retrieveProxy(GameModelProxy.NAME));
+            gProxy.reSetData();
+            //GameModel.Ins.reSetData();
             this.initGame();
-            GameModel.Ins.updataCat();
+            gProxy.updataCat();
+
+            //GameModel.Ins.updataCat();
         }
 
         private UpdataCat(e:CommonEvent):void
@@ -130,10 +136,13 @@ module mx {
         private initGame(e:any = null):void
         {
             this.hideWait();
-            let data:CustomMap =  GameModel.Ins.reSetData();
-            var dataMax:number = GameModel.Ins.pointMax;
+
+            let gProxy = <GameModelProxy><any>(this.facade.retrieveProxy(GameModelProxy.NAME));
+            
+            let data:CustomMap =  gProxy.reSetData();
+            var dataMax:number = gProxy.pointMax;
             var vo:WayPointData;
-            this.view.score_t.text = GameModel.Ins.nowStep + "";
+            this.view.score_t.text = gProxy.nowStep + "";
             for (var i:number = 0;i<dataMax;i++)
             {
                 vo = data.get(i);
@@ -148,7 +157,8 @@ module mx {
 
         private UpdataData(e:CommonEvent):void
         {
-            this.view.score_t.text = GameModel.Ins.nowStep + "";
+            let gProxy = <GameModelProxy><any>(this.facade.retrieveProxy(GameModelProxy.NAME));
+            this.view.score_t.text = gProxy.nowStep + "";
             var data:WayPointData = e.data;
             this.view.updataPoint(data);
         }

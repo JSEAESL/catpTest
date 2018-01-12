@@ -6,7 +6,7 @@ module mx {
 	
 		public execute(notification : puremvc.INotification) : void
         {
-        	//this.facade.registerProxy(new DataProxy());
+			this.facade.registerProxy(new GameModelProxy());
 		}
 	}
 }

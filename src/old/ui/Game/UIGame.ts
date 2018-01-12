@@ -34,7 +34,9 @@ class UIGame extends Widget {
 		this.addChild(this.catLayer)
 		this.addEvent();
 		this.initGame();
-		GameModel.Ins.updataCat();
+
+		// let gProxy = <mx.GameModelProxy><any>(this.facade.retrieveProxy(GameModelProxy.NAME));
+		// GameModel.Ins.updataCat();
 		//console.log("childrenCreated");
 		//this.addEventListener(egret.TouchEvent.TOUCH_TAP,this.GameStart,this)
 	}
@@ -103,11 +105,11 @@ class UIGame extends Widget {
 
 	private reStarGame(e:egret.TouchEvent):void
 	{
-		GameModel.Ins.reSetData();
+		//GameModel.Ins.reSetData();
 		this.removeEvent();
 		this.addEvent();
 		this.initGame();
-		GameModel.Ins.updataCat();
+		//GameModel.Ins.updataCat();
 	}
 
 
@@ -149,17 +151,17 @@ class UIGame extends Widget {
 
 	private initGame(e:any = null):void
 	{
-		let data:CustomMap =  GameModel.Ins.reSetData();
+		//let data:CustomMap =  GameModel.Ins.reSetData();
 		//console.log();
-		var dataMax:number = GameModel.Ins.pointMax;
+		//var dataMax:number = GameModel.Ins.pointMax;
 		var vo:WayPointData;
 		//console.log("dataMax" + dataMax);
-		this.StepLabel.text = GameModel.Ins.nowStep + "";
-		for (var i:number = 0;i<dataMax;i++)
-		{
-			vo = data.get(i);
-			this.updataPoint(vo);
-		}
+		//this.StepLabel.text = GameModel.Ins.nowStep + "";
+		// for (var i:number = 0;i<dataMax;i++)
+		// {
+		// 	//vo = data.get(i);
+		// 	this.updataPoint(vo);
+		// }
 		//this.cellList.dataProvider = new eui.ArrayCollection([]);
 		this.cat.reStart();
 		this.cat1.reStart();
@@ -188,7 +190,7 @@ class UIGame extends Widget {
 
 	private UpdataData(e:CommonEvent):void
 	{
-		this.StepLabel.text = GameModel.Ins.nowStep + "";
+		//this.StepLabel.text = GameModel.Ins.nowStep + "";
 		var data:WayPointData = e.data;
 		this.updataPoint(data);
 	}
