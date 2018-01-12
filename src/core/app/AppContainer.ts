@@ -8,9 +8,11 @@ module mx {
         }
 
         private bg_g : eui.Group;
+        private alert_g : eui.Group;
+
         private initElement():void
         {
-            let g_arr = ["bg_g"];
+            let g_arr = ["bg_g","alert_g"];
             for(let k in g_arr){
                 let c_g = new eui.Group();
                 c_g.percentWidth = 100;
@@ -29,22 +31,18 @@ module mx {
             this.change_view("GameStart");
         }
         private addList:any[]
-        public add_view(viewName:any):void
+        public add_view(viewName:any,data?:any):void
         {
            let c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
-                let screen: any = <eui.Component><any>new c_class(viewName.param);
-                this.bg_g.addChild(screen);
+                let screen: any = <eui.Component><any>new c_class(data);
+                this.alert_g.addChild(screen);
                 this.addList.push(screen);
             }
         }
 
-        private cleanNowView():void
+        public clean_Add():void
         {
-            if(this.nowView && this.nowView.parent)
-            {
-                this.nowView.parent.removeChild(this.nowView);
-            }
             for(var k in this.addList)
             {
                 if(this.addList[k] && this.addList[k].parent)
@@ -54,13 +52,22 @@ module mx {
             }
         }
 
+        private cleanNowView():void
+        {
+            if(this.nowView && this.nowView.parent)
+            {
+                this.nowView.parent.removeChild(this.nowView);
+            }
+            this.clean_Add();
+        }
+
         private nowView:BasicComponent;
-        public change_view(viewName:any):void
+        public change_view(viewName:any,data?:any):void
         {
             this.cleanNowView();
             let c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
-                let screen: any = <BasicComponent><any>new c_class(viewName.param);
+                let screen: any = <BasicComponent><any>new c_class(data);
                 this.nowView = screen 
                 this.bg_g.addChild(screen);
             }

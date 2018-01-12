@@ -1,5 +1,6 @@
 class UIGame extends Widget {
 
+	public static RE_START_GAME:string = "RE_START_GAME";
 	public static UPDATA:string =  "UIGame_updata";
 	public static UPDATA_CAT:string =  "UIGame_updata_cat";
 

@@ -20,7 +20,8 @@ module mx {
                 UIGame.UPDATA_CAT_Bir,
                 UIGame.GAME_Cat_Lose,
                 UIGame.GAME_Win,
-                UIGame.GAME_Lose
+                UIGame.GAME_Lose,
+                UIGame.RE_START_GAME
             ];
         }
 
@@ -29,6 +30,9 @@ module mx {
             var data:any = notification.getBody();
             switch(notification.getName())
             {
+                case UIGame.RE_START_GAME:
+                    this.reStarGame();
+                    break;
                 case UIGame.UPDATA:
                     this.UpdataData(data)
                     break;
@@ -103,9 +107,8 @@ module mx {
             // GlobalDispatcher.Ins.addEventListener(,,this);
             this.view.restart_b.addEventListener(egret.TouchEvent.TOUCH_TAP, this.reStarGame,this)
         }
-
         
-        private reStarGame(e:egret.TouchEvent):void
+        private reStarGame(e:egret.TouchEvent = null):void
         {
             GameModel.Ins.reSetData();
             this.initGame();

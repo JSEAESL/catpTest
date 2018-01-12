@@ -198,7 +198,7 @@ class GameModel {
 
 		var randHasNum:number = this.minHasNum +  Math.ceil( Math.random() * (this.maxHasNum - this.minHasNum) );
 		var hasList:number[] = [];
-		//var randHasNum:number  = 30;
+		var randHasNum:number  = 30;
 		while(randHasNum>0)
 		{
 			var hasIndex:number = Math.ceil( Math.random() * this.pointMax );

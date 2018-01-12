@@ -19,19 +19,10 @@ module mx {
             ];
         }
 
-        public handleNotification(notification : puremvc.INotification) : void
-        {
-            switch(notification.getName())
-            {
-                // case SIGN_NAME.ENTER_GAME_ROOT:
-                //     this.sendNotification(ApplicationMediator.APP_VIEW_CHANGE,{"viewName":});
-                // break;
-            }
-		}
-
         private reStarGame(e:egret.TouchEvent):void
         {
-            //SceneUtil.getInstance().goGame();
+            console.log("reStarGame");
+            this.sendNotification(UIGame.RE_START_GAME);
         }
 
         private mData:ResultData;
@@ -40,7 +31,6 @@ module mx {
             this.mData = resultData;
             this.updataView()
         }
-
 
         private updataView():void
         {
@@ -65,16 +55,18 @@ module mx {
                     this.view.heightScoreLabel.text = 100 - winStep + "";
                 }
             }
+            this.addEvent()
         }
         
         protected addEvent():void
         {
+            this.view.againImage.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.reStarGame,this)
             this.view.againImage.addEventListener(egret.TouchEvent.TOUCH_TAP,this.reStarGame,this)
         }
 
         protected removeEvent():void
         {
-            //this.view.button_b.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.clickHandler,this)
+            this.view.againImage.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.reStarGame,this)
         }
 	}
 }
