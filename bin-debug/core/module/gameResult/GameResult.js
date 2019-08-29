@@ -15,15 +15,19 @@ var mx;
 (function (mx) {
     var GameResult = (function (_super) {
         __extends(GameResult, _super);
-        function GameResult() {
-            var _this = _super.call(this) || this;
-            _this.skinName = mx.GameStart.NAME + "Skin";
+        function GameResult(cd) {
+            var _this = _super.call(this, cd) || this;
+            _this.skinName = GameResult.NAME + "Skin";
             return _this;
         }
         GameResult.prototype.onAddTostage = function () {
             console.log("GameStart>>>onAddTostage");
             var facade = mx.ApplicationFacade.getInstance();
-            facade.registerMediator(new mx.GameResultMediator(this));
+            var med = new mx.GameResultMediator(this);
+            facade.registerMediator(med);
+            med.setResultData(this.adata);
+            this.x = 0.5 * (GameConfig.stageWidth - this.width);
+            this.y = 0.5 * (GameConfig.stageHeight - this.height);
         };
         GameResult.prototype.onRmovestage = function () {
             var facade = mx.ApplicationFacade.getInstance();

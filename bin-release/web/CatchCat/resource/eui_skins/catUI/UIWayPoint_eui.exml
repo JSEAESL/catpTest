@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="UIWayPoint_eui" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="empty,has" >
+	<e:Image source="pot1_png" x="0" y="0" includeIn="empty"/>
+	<e:Image source="pot2_png" x="0" y="0" includeIn="has"/>
+	<e:Label id="tt" text="" x="3" y="17" size="10" textColor="0x0c0000"/>
+</e:Skin>

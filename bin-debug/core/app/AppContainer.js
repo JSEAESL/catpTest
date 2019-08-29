@@ -21,7 +21,7 @@ var mx;
             return _this;
         }
         AppContainer.prototype.initElement = function () {
-            var g_arr = ["bg_g"];
+            var g_arr = ["bg_g", "alert_g"];
             for (var k in g_arr) {
                 var c_g = new eui.Group();
                 c_g.percentWidth = 100;
@@ -37,29 +37,32 @@ var mx;
             console.log("enterGame");
             this.change_view("GameStart");
         };
-        AppContainer.prototype.add_view = function (viewName) {
+        AppContainer.prototype.add_view = function (viewName, data) {
             var c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
-                var screen_1 = new c_class(viewName.param);
-                this.bg_g.addChild(screen_1);
+                var screen_1 = new c_class(data);
+                this.alert_g.addChild(screen_1);
                 this.addList.push(screen_1);
             }
         };
-        AppContainer.prototype.cleanNowView = function () {
-            if (this.nowView && this.nowView.parent) {
-                this.nowView.parent.removeChild(this.nowView);
-            }
+        AppContainer.prototype.clean_Add = function () {
             for (var k in this.addList) {
                 if (this.addList[k] && this.addList[k].parent) {
                     this.addList[k].parent.removeChild(this.addList[k]);
                 }
             }
         };
-        AppContainer.prototype.change_view = function (viewName) {
+        AppContainer.prototype.cleanNowView = function () {
+            if (this.nowView && this.nowView.parent) {
+                this.nowView.parent.removeChild(this.nowView);
+            }
+            this.clean_Add();
+        };
+        AppContainer.prototype.change_view = function (viewName, data) {
             this.cleanNowView();
             var c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
-                var screen_2 = new c_class(viewName.param);
+                var screen_2 = new c_class(data);
                 this.nowView = screen_2;
                 this.bg_g.addChild(screen_2);
             }

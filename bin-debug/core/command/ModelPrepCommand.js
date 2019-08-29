@@ -19,7 +19,7 @@ var mx;
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ModelPrepCommand.prototype.execute = function (notification) {
-            //this.facade.registerProxy(new DataProxy());
+            this.facade.registerProxy(new mx.GameModelProxy());
         };
         return ModelPrepCommand;
     }(puremvc.SimpleCommand));

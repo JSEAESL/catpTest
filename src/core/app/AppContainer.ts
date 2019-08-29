@@ -30,16 +30,31 @@ module mx {
             console.log("enterGame");
             this.change_view("GameStart");
         }
+
+        private nowView:BasicComponent;
+        public change_view(viewName:any,data?:any):void
+        {
+            this.cleanNowView();
+            let c_class = egret.getDefinitionByName("mx." + viewName);
+            if (c_class) {
+                let screen: any = <BasicComponent><any>new c_class(data);
+                this.nowView = screen 
+                this.bg_g.addChild(screen);
+            }
+        }
+
+
         private addList:any[]
         public add_view(viewName:any,data?:any):void
         {
            let c_class = egret.getDefinitionByName("mx." + viewName);
             if (c_class) {
-                let screen: any = <eui.Component><any>new c_class(data);
-                //screen.x = 0.5*(GameConfig.stageWidth - screen.width);
-                screen.y = 0.5*(GameConfig.stageHeight - screen.height);
+                let screen:eui.Component = <eui.Component><any>new c_class(data);
+
                 this.alert_g.addChild(screen);
                 this.addList.push(screen);
+
+
             }
         }
 
@@ -63,17 +78,7 @@ module mx {
             this.clean_Add();
         }
 
-        private nowView:BasicComponent;
-        public change_view(viewName:any,data?:any):void
-        {
-            this.cleanNowView();
-            let c_class = egret.getDefinitionByName("mx." + viewName);
-            if (c_class) {
-                let screen: any = <BasicComponent><any>new c_class(data);
-                this.nowView = screen 
-                this.bg_g.addChild(screen);
-            }
-        }
+
         
     }
 }

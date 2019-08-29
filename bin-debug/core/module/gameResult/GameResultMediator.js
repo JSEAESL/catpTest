@@ -29,12 +29,9 @@ var mx;
         GameResultMediator.prototype.listNotificationInterests = function () {
             return [];
         };
-        GameResultMediator.prototype.handleNotification = function (notification) {
-            switch (notification.getName()) {
-            }
-        };
         GameResultMediator.prototype.reStarGame = function (e) {
-            //SceneUtil.getInstance().goGame();
+            console.log("reStarGame");
+            this.sendNotification(UIGame.RE_START_GAME);
         };
         GameResultMediator.prototype.setResultData = function (resultData) {
             this.mData = resultData;
@@ -58,12 +55,14 @@ var mx;
                     this.view.heightScoreLabel.text = 100 - winStep + "";
                 }
             }
+            this.addEvent();
         };
         GameResultMediator.prototype.addEvent = function () {
+            this.view.againImage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.reStarGame, this);
             this.view.againImage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.reStarGame, this);
         };
         GameResultMediator.prototype.removeEvent = function () {
-            //this.view.button_b.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.clickHandler,this)
+            this.view.againImage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.reStarGame, this);
         };
         GameResultMediator.NAME = "GameResultMediator";
         return GameResultMediator;

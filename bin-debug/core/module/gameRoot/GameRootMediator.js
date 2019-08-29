@@ -33,12 +33,16 @@ var mx;
                 UIGame.UPDATA_CAT_Bir,
                 UIGame.GAME_Cat_Lose,
                 UIGame.GAME_Win,
-                UIGame.GAME_Lose
+                UIGame.GAME_Lose,
+                UIGame.RE_START_GAME
             ];
         };
         GameRootMediator.prototype.handleNotification = function (notification) {
             var data = notification.getBody();
             switch (notification.getName()) {
+                case UIGame.RE_START_GAME:
+                    this.reStarGame();
+                    break;
                 case UIGame.UPDATA:
                     this.UpdataData(data);
                     break;
@@ -81,7 +85,9 @@ var mx;
         };
         GameRootMediator.prototype.init = function () {
             this.initGame();
-            GameModel.Ins.updataCat();
+            var gProxy = (this.facade.retrieveProxy(mx.GameModelProxy.NAME));
+            gProxy.updataCat();
+            //GameModel.Ins.updataCat();
         };
         GameRootMediator.prototype.clickHandler = function () {
             //this.sendNotification(SIGN_NAME.ENTER_GAME_ROOT);
@@ -96,9 +102,13 @@ var mx;
             this.view.restart_b.addEventListener(egret.TouchEvent.TOUCH_TAP, this.reStarGame, this);
         };
         GameRootMediator.prototype.reStarGame = function (e) {
-            GameModel.Ins.reSetData();
+            if (e === void 0) { e = null; }
+            var gProxy = (this.facade.retrieveProxy(mx.GameModelProxy.NAME));
+            gProxy.reSetData();
+            //GameModel.Ins.reSetData();
             this.initGame();
-            GameModel.Ins.updataCat();
+            gProxy.updataCat();
+            //GameModel.Ins.updataCat();
         };
         GameRootMediator.prototype.UpdataCat = function (e) {
             var pointdata = e.data;
@@ -111,10 +121,11 @@ var mx;
         GameRootMediator.prototype.initGame = function (e) {
             if (e === void 0) { e = null; }
             this.hideWait();
-            var data = GameModel.Ins.reSetData();
-            var dataMax = GameModel.Ins.pointMax;
+            var gProxy = (this.facade.retrieveProxy(mx.GameModelProxy.NAME));
+            var data = gProxy.reSetData();
+            var dataMax = gProxy.pointMax;
             var vo;
-            this.view.score_t.text = GameModel.Ins.nowStep + "";
+            this.view.score_t.text = gProxy.nowStep + "";
             for (var i = 0; i < dataMax; i++) {
                 vo = data.get(i);
                 this.view.updataPoint(vo);
@@ -123,7 +134,8 @@ var mx;
             this.view.cat1.reStart();
         };
         GameRootMediator.prototype.UpdataData = function (e) {
-            this.view.score_t.text = GameModel.Ins.nowStep + "";
+            var gProxy = (this.facade.retrieveProxy(mx.GameModelProxy.NAME));
+            this.view.score_t.text = gProxy.nowStep + "";
             var data = e.data;
             this.view.updataPoint(data);
         };

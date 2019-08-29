@@ -17,6 +17,9 @@ module mx {
 			let med:GameResultMediator = new GameResultMediator(this)
             facade.registerMediator(med);
 			med.setResultData(this.adata);
+
+			this.x = 0.5*(GameConfig.stageWidth - this.width);
+            this.y = 0.5*(GameConfig.stageHeight - this.height);
 		}
 
 		protected onRmovestage():void

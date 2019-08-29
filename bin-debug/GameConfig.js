@@ -4,8 +4,8 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var GameConfig = (function () {
     function GameConfig() {
     }
-    GameConfig.stageWidth = 0;
-    GameConfig.stageHeight = 0;
+    GameConfig.stageWidth = 640;
+    GameConfig.stageHeight = 1136;
     return GameConfig;
 }());
 __reflect(GameConfig.prototype, "GameConfig");
